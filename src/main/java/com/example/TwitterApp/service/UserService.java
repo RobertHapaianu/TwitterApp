@@ -1,18 +1,20 @@
 package com.example.TwitterApp.service;
 
-import com.example.TwitterApp.model.Post;
-import com.example.TwitterApp.model.User;
+import com.example.TwitterApp.model.dto.UserDTO;
+import com.example.TwitterApp.model.entity.User;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Map;
 
 public interface UserService {
 
-    List<User> getAllUsers();
+    List<UserDTO> getAllUsers();
     void registerUser(User user);
-    User getUserByUserName(String userName);
-    User getUserByFirstName(String firstName);
-    User getUserByLastName(String lastName);
-    void follow(String userName, Map<String, String> userNameToFollow);
-    List<Post> getFeed(String UserName);
+    List<UserDTO> search(String name);
+    User searchByUserName(String name);
+//    User getUserByUserName(String userName);
+//    User getUserByFirstName(String firstName);
+//    User getUserByLastName(String lastName);
+    ResponseEntity<?> follow(String userName, String userNameToFollow);
+//    List<Post> getFeed(String UserName);
 }
